@@ -1,0 +1,68 @@
+/* styles.css */
+
+/* Add styles here to customize the appearance of your app */
+
+#output,.preview{
+    display: flex;
+    overflow:hidden;
+}
+
+label[for="input"]{
+    color:white;
+    margin:5px;
+    padding: 8px;
+    background-color: rgb(235, 172, 235);
+    font-size: 20px;
+    border-radius: 20px;
+    border:2px solid black;
+}
+label[for="input"]:hover{
+    box-shadow: 2px 2px rgb(70, 68, 68);
+}
+li {
+  display: inline-block;
+  padding: 10px 20px;
+}
+ol{
+    white-space: nowrap;
+}
+
+.selected-pics{
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgb(37, 149, 235);
+}
+.hoverZoom:hover{
+    transform: scale(2);
+    box-shadow: 5px 5px 10px rgb(37, 149, 235);
+}
+
+.next-Button{
+    border-radius: 50%;
+    height:40px;
+    width:40px;
+    background-color: transparent;
+    font-size: 15px;
+    align-self: center;
+    margin-right: 20px;
+    z-index: 100;
+}
+
+.next-Button:hover{
+    background-color: white;
+    box-shadow: 5px 5px 10px rgb(37, 149, 235);
+}
+
+.clear-Button{
+    border-radius: 50%;
+    height:50px;
+    width:100px;
+    padding: 5px;
+   
+    background-color: rgb(235, 112, 45);
+    font-size: 30px;
+}
+
+.clear-Button:hover{
+    background-color: white;
+    box-shadow: 5px 5px 10px rgb(235, 37, 113);
+}

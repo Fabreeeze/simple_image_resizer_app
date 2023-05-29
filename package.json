@@ -1,0 +1,16 @@
+{
+  "name": "resizer app",
+  "productName": "resizer app",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "Hp",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "24.3.0"
+  }
+}
