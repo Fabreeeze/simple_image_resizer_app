@@ -2,9 +2,23 @@
 
 /* Add styles here to customize the appearance of your app */
 
-#output,.preview{
+body{
+    overflow:hidden;
+    color:white;
+    background-color: rgb(33,37,41);
+}
+#output{
     display: flex;
     overflow:hidden;
+    white-space: nowrap;
+    height:150px;
+}
+
+.preview{
+    display: inline-block;
+    width: 100%;
+    height:100px;
+    background-color: rgb(110,44,242);
 }
 
 label[for="input"]{
@@ -36,21 +50,34 @@ ol{
     box-shadow: 5px 5px 10px rgb(37, 149, 235);
 }
 
-.next-Button{
-    border-radius: 50%;
-    height:40px;
-    width:40px;
-    background-color: transparent;
+.next_back-Button{
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    opacity: 50%;
     font-size: 15px;
     align-self: center;
     margin-right: 20px;
-    z-index: 100;
+    
+    box-shadow: 10px 10px 20px white;
 }
 
-.next-Button:hover{
+.next_back-Button:hover{
     background-color: white;
+    opacity:100%;
     box-shadow: 5px 5px 10px rgb(37, 149, 235);
 }
+
+#back-button{
+  left: calc(1% - 30px);
+}
+
+#next-button{
+  right: calc(1% - 30px);
+}
+
 
 .clear-Button{
     border-radius: 50%;

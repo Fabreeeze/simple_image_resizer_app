@@ -1,0 +1,11 @@
+/* Empty */
+#download{
+    display: none;
+}
+
+#download_button{
+    height:50px;
+    width:200px;
+    font-size: 30px;
+    padding: 10px;
+}

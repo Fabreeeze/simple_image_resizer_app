@@ -9,12 +9,13 @@
 
 const input = document.querySelector('input');
 const preview = document.querySelector('.preview');
+const output=document.querySelector('#output');
+const downloadDiv=document.querySelector('#download');
 
 input.style.opacity = 0;
 
 input.addEventListener('change', updateImageDisplay);
 
-// https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types
 const fileTypes = [
   "image/apng",
   "image/bmp",
@@ -50,11 +51,15 @@ function clearSelectedImages(){
     while(preview.firstChild) {
         preview.removeChild(preview.firstChild);
     }
+    downloadDiv.style.display='none';
 }
 
 
+const scrollAmount=100;
+
 function updateImageDisplay() {
     clearSelectedImages();
+    downloadDiv.style.display='block';
     //this removed previously selected files
 
     const curFiles = input.files;
@@ -62,7 +67,8 @@ function updateImageDisplay() {
         const para = document.createElement('p');
         para.textContent = 'No files currently selected for upload';
         preview.appendChild(para);
-    } else {
+    } 
+    else {
         const list = document.createElement('ol');
         preview.appendChild(list);
         let i=0;
@@ -74,7 +80,7 @@ function updateImageDisplay() {
             if (validFileType(file)) {
                 const image = document.createElement('img');
                 image.src = URL.createObjectURL(file);
-                
+                console.log("image url="+image.src);
                 image.style.height = '70px';
                 image.style.width = '80px';
                 
@@ -102,23 +108,32 @@ function updateImageDisplay() {
                 list.appendChild(liItemlist[j]);
             }
             const nextBttn=document.createElement('button');
-            nextBttn.setAttribute('class','next-Button');
+            nextBttn.setAttribute('class','next_back-Button');
             nextBttn.setAttribute('id','next-button');
-            nextBttn.setAttribute('onClick','scrollLeft()');
+            nextBttn.setAttribute('onClick','scrollPics(1)');
             nextBttn.textContent = '>';
-            list.appendChild(nextBttn);
+
+            const backBttn=document.createElement('button');
+            backBttn.setAttribute('class','next_back-Button');
+            backBttn.setAttribute('id','back-button');
+            backBttn.setAttribute('onClick','scrollPics(-1)');
+            backBttn.textContent = '<';
+
+            output.appendChild(backBttn);
+            output.appendChild(nextBttn);
+
+            const clearBttn=document.createElement('button');
+            clearBttn.setAttribute('class','clear-Button');
+            clearBttn.textContent = 'CLEAR';
+            output.appendChild(clearBttn);
         }
 
 
-        const clearBttn=document.createElement('button');
-            clearBttn.setAttribute('class','clear-Button');
-            clearBttn.textContent = 'CLEAR';
-        preview.appendChild(clearBttn);
     }
 }
 
 
 var btnLeft=document.getElementById("next-button");
-function scrollLeft() {
-    window.scroll(window.scrollX+50, window.scrollY);
+function scrollPics(i) {
+    output.scrollLeft+= i*scrollAmount;
 }
