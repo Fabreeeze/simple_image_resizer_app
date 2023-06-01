@@ -72,10 +72,20 @@ ol{
 
 #back-button{
   left: calc(1% - 30px);
+  border-end-end-radius: 50%;
+    /*round border for bottom right corner  */
+
+  border-start-end-radius: 50%;
+    /*round border for top right corner  */
 }
 
 #next-button{
   right: calc(1% - 30px);
+  border-end-start-radius: 50%;
+    /*round border for bottom left corner  */
+
+  border-start-start-radius: 50%;
+    /*round border for top left corner  */
 }
 
 
