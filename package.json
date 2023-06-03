@@ -1,6 +1,6 @@
 {
-  "name": "resizer app",
-  "productName": "resizer app",
+  "name": "image_resizer_app",
+  "productName": "image_resizer_app",
   "description": "My Electron application description",
   "keywords": [],
   "main": "./main.js",

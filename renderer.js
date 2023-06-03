@@ -137,3 +137,5 @@ var btnLeft=document.getElementById("next-button");
 function scrollPics(i) {
     output.scrollLeft+= i*scrollAmount;
 }
+
+
