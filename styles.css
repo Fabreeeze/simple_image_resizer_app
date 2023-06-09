@@ -7,27 +7,46 @@ body{
     color:white;
     background-color: rgb(33,37,41);
 }
+p {
+  margin: auto;
+}
+
 #output{
     display: flex;
-    overflow:hidden;
+	flex-direction: column;
     white-space: nowrap;
-    height:150px;
+    height:300px;
 }
 
 .preview{
-    display: inline-block;
-    width: 100%;
+    display: inline-block;	
+	overflow: hidden;
+    width: 50vw;
+	margin: auto;
     height:100px;
     background-color: rgb(110,44,242);
 }
 
+#input_box {
+	height: 150px;
+	display: flex;
+	width: 100vw;
+	align-items: center;
+}
+
+
+#input {
+	display: none;
+}
+
 label[for="input"]{
     color:white;
-    margin:5px;
-    padding: 8px;
+    margin: auto;
+    padding: 15px;
+	border-radius: 30px;
+	height: 30px;
     background-color: rgb(235, 172, 235);
     font-size: 20px;
-    border-radius: 20px;
     border:2px solid black;
 }
 label[for="input"]:hover{
@@ -59,8 +78,6 @@ ol{
     opacity: 50%;
     font-size: 15px;
     align-self: center;
-    margin-right: 20px;
-    
     box-shadow: 10px 10px 20px white;
 }
 
@@ -90,11 +107,11 @@ ol{
 
 
 .clear-Button{
-    border-radius: 50%;
-    height:50px;
-    width:100px;
-    padding: 5px;
-   
+    border-radius: 30%;
+	width: 150px;
+	padding: 10px;
+	height: 60px;
+	margin: auto;
     background-color: rgb(235, 112, 45);
     font-size: 30px;
 }
@@ -103,3 +120,10 @@ ol{
     background-color: white;
     box-shadow: 5px 5px 10px rgb(235, 37, 113);
 }
+
+#download_button {
+	margin: auto; 
+}
+
+
+

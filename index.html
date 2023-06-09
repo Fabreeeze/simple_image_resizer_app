@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src blob: ;script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' cdnjs.cloudflare.com; img-src blob: ; connect-src blob 'self' 'unsafe-inline' cdnjs.cloudflare.com data: ; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/; style-src 'self' 'unsafe-inline'">
     <link href="./styles.css" rel="stylesheet">
     <link href="./styles_2.css" rel="stylesheet">
     <title>Hello World!</title>
   </head>
   <body>
-    <label for="input">Select images to Resize</label>
-    <input type="file" for="input" id="input" accept=".jpeg, .jpg, .png" multiple/>
-
+    <span id="input_box">
+		<label for="input">Select images to Resize</label>
+		<input type="file" for="input" id="input" accept="image/*" multiple="" style="opacity: 0;">
+	</span>
 
     <div id="output">
       <p>Selected files are :</p>
-    <div class="preview"></div>
+    <div class="preview" id="preview"></div>
     </div>
 
     <div id="download">
@@ -29,7 +30,10 @@
     <!-- You can also require other files to run in this process -->
     
     <script src="./renderer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/jszip-utils.min.js"></script>
+
     <script src="./resize.js"></script>
     <script src="./zipping.js"></script>
+    
   </body>
 </html>

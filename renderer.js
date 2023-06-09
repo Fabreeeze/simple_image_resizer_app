@@ -8,7 +8,7 @@
 
 
 const input = document.querySelector('input');
-const preview = document.querySelector('.preview');
+const preview = document.querySelector('#preview');
 const output=document.querySelector('#output');
 const downloadDiv=document.querySelector('#download');
 
@@ -46,20 +46,29 @@ function returnFileSize(number) {
 }
 
 
-
-function clearSelectedImages(){
-    while(preview.firstChild) {
-        preview.removeChild(preview.firstChild);
-    }
-    downloadDiv.style.display='none';
-}
-
-
 const scrollAmount=100;
 
+function clearSelectedImages() {
+	return new Promise( function (resolve, reject) {
+		console.log(output.childNodes);
+		while(preview.firstChild) {
+		  preview.removeChild(preview.firstChild);
+		}
+		while(output.childNodes.length > 1) {
+			if(output.lastChild!=preview)
+				output.removeChild(output.lastChild);
+			else
+				break;
+		}
+		downloadDiv.style.display = 'none';
+		resolve();
+	});
+}
+
 function updateImageDisplay() {
-    clearSelectedImages();
-    downloadDiv.style.display='block';
+	clearSelectedImages().then(function() {
+		
+		downloadDiv.style.display='block';
     //this removed previously selected files
 
     const curFiles = input.files;
@@ -125,17 +134,20 @@ function updateImageDisplay() {
             const clearBttn=document.createElement('button');
             clearBttn.setAttribute('class','clear-Button');
             clearBttn.textContent = 'CLEAR';
+			clearBttn.setAttribute('onClick','clearSelectedImages()');
             output.appendChild(clearBttn);
         }
 
-
-    }
+	}
+    
+	});
+    
 }
 
 
 var btnLeft=document.getElementById("next-button");
 function scrollPics(i) {
-    output.scrollLeft+= i*scrollAmount;
+    preview.scrollLeft+= i*scrollAmount;
 }
 
 
